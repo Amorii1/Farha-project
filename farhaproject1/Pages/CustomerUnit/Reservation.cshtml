@@ -1,0 +1,94 @@
+﻿@page
+@model farhaproject1.Pages.CustomerUnit.ReservationModel
+@{
+    ViewData["Title"] = "Reservation";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+
+
+<section class="ftco-section bg-dress1" id="rsvp-section">
+
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 text-center heading-section">
+
+                <h2 class="mb-3" style="color:#f58499;">Booking the Hall?</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+
+                <form method="post" enctype="multipart/form-data" class="rsvp-form ">
+
+                    <input type="hidden" asp-for="TReservation.AdminId" />
+                    <input type="hidden" asp-for="CustomerSelect.HallId" />
+                    <input type="hidden" asp-for="CustomerSelect.HallInformation.AdminId" />
+                    <input type="hidden" asp-for="CustomerSelect.Id" />
+                    <div class="">
+                        <div class="form-group">
+                            <input type="text" asp-for="TReservation.Name" class="form-control" placeholder="Name">
+                            <p asp-validation-for="TReservation.Name" class="text-danger"> </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" asp-for="TReservation.PhoneNumber" class="form-control" placeholder="Phone Number">
+                            <p asp-validation-for="TReservation.PhoneNumber" class="text-danger"> </p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="form-group">
+                            <input type="date" asp-for="TReservation.D" placeholder="Pick the date" class="form-control datepicker datepicker-inline" >
+                            <p asp-validation-for="TReservation.D" class="text-danger"> </p>
+                        </div>
+                        <div class="form-group">
+                            <li class="list-group-item text-dark">@Html.DisplayNameFor(m => Model.TotalPrices) : @Html.DisplayFor(m => Model.TotalPrices) IQD </li>
+                            <input type="hidden" asp-for="TotalPrices" />
+                        </div>
+                    </div>
+                  
+                    <div class="">
+                        <div class="form-group">
+                            <li class="list-group-item text-dark">@Html.DisplayNameFor(m => Model.CustomerSelect.HallInformation.HallName) : @Html.DisplayFor(m => Model.CustomerSelect.HallInformation.HallName) </li>
+                            <li class="list-group-item text-dark">@Html.DisplayNameFor(m => Model.CustomerSelect.HallInformation.Price) : @Html.DisplayFor(m => Model.CustomerSelect.HallInformation.Price) IQD </li>
+                            <input type="hidden" asp-for="CustomerSelect.HallInformation.Id" />
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                        <div class="form-group">
+
+                            <li class="list-group-item text-dark">Decoration @Html.DisplayNameFor(m => Model.CustomerSelect.Decoration.Name) : @Html.DisplayFor(m => Model.CustomerSelect.Decoration.Name) </li>
+                            <li class="list-group-item text-dark">@Html.DisplayNameFor(m => Model.CustomerSelect.DanceTeam.Price) : @Html.DisplayFor(m => Model.CustomerSelect.DanceTeam.Price) IQD </li>
+                            <input type="hidden" asp-for="CustomerSelect.Decoration.Id" />
+                        </div>
+                        <div class="form-group">
+
+                            <li class="list-group-item text-dark">Dance Team @Html.DisplayNameFor(m => Model.CustomerSelect.DanceTeam.Name) : @Html.DisplayFor(m => Model.CustomerSelect.DanceTeam.Name) </li>
+
+                            <li class="list-group-item text-dark">@Html.DisplayNameFor(m => Model.CustomerSelect.DanceTeam.Price) : @Html.DisplayFor(m => Model.CustomerSelect.DanceTeam.Price) IQD </li>
+                            <input type="hidden" asp-for="CustomerSelect.DanceTeam.Id" />
+                        </div>
+                        
+                        <div class="form-group float-right">
+                         
+                              
+                                <input type="submit" value="Send" class="btn btn-primary py-3 px-5 mr-1 " >
+                         
+                        </div>
+                        <div class="form-group ">
+                            <a asp-page="HallPage" class="btn btn-primary py-3 px-5 mr-5 " asp-route-Id="@Model.CustomerSelect.HallInformation.Id">Back </a>
+                        </div>
+                   
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+

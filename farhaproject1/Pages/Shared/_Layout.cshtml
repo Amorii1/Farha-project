@@ -1,0 +1,130 @@
+﻿@using farhaproject1.Utility
+@using System.Security.Claims
+@using farhaproject1.Data;
+@using farhaproject1.Models;
+@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Farha</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+
+        <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="~/css/site.css" />
+
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="~/css/site.css" />
+
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggler-sm  " style="height:65px;">
+
+        <div class="container">
+            <a class="navbar-brand" asp-page="/Index"><img src="~/img/Picture1.png " style="width:65px;" class="mr-3" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="text-light mb-5 pb-3"><i class="navbar-toggler-icon "></i></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex ">
+
+                <ul class="navbar-nav mr-auto">
+
+                    @if (User.IsInRole(SD.OwnerEndUser))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-page="/OwnerUnit/AdminInformation">Admin Information</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(SD.AdminEndUser))
+                    {
+                        <li class="nav-item active">
+                            <a class="nav-link " asp-area="" asp-page="/AdminUnit/Index" asp-route-AdminId="">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-page="/AdminUnit/Booking">Booking</a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link " asp-area="" asp-page="/AdminUnit/Reservation">
+                                Reservation    <span class="badge badge-primary badge-pill">
+
+                                    @*@{
+                                        int r = await new Request().ReservationRequest();
+
+                                    }
+
+                                    @r*@
+                                </span>
+                            </a>
+                        </li>
+                    }
+                    @if (!User.IsInRole(SD.AdminEndUser) && !User.IsInRole(SD.OwnerEndUser))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-page="/CustomerUnit/Index">Halls</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link " href="/#about">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/#footer">Contact us</a>
+                    </li>
+
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

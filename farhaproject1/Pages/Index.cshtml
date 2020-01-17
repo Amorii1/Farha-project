@@ -1,0 +1,342 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@*<img src="~/img/ph.jpg" style="width:1370px; height:555px; left:0;right:0;" />*@
+
+<style>
+    .map-container-2 {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+
+        .map-container-2 iframe {
+            left: 0;
+            top: 0;
+            height: 400%;
+            width: 400%;
+            position: absolute;
+        }
+
+    .icon-twitter-square:before {
+        content: "\f081";
+    }
+
+    header {
+        position: relative;
+        background-color: black;
+        height: 75vh;
+        min-height: 25rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+    .ftco-footer {
+        font-size: 16px;
+        padding: 7em 0;
+        background: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+        .ftco-footer .ftco-footer-logo {
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+        .ftco-footer .ftco-footer-widget h2 {
+            font-weight: normal;
+            color: black;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .ftco-footer .ftco-footer-widget ul li {
+            margin-bottom: 10px;
+        }
+
+            .ftco-footer .ftco-footer-widget ul li a {
+                color: black;
+            }
+
+                .ftco-footer .ftco-footer-widget ul li a span {
+                    color: #fff;
+                }
+
+        .ftco-footer .ftco-footer-widget .btn-primary {
+            background: black !important;
+            border: 2px solid black !important;
+        }
+
+            .ftco-footer .ftco-footer-widget .btn-primary:hover {
+                background: #fff;
+                border: 2px solid #fff !important;
+            }
+
+        .ftco-footer p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .ftco-footer a {
+            color: #d4ca68;
+        }
+
+            .ftco-footer a:hover {
+                color: #d4ca68;
+            }
+
+        .ftco-footer .ftco-heading-2 {
+            font-size: 17px;
+            font-weight: 400;
+            color: #000000;
+        }
+
+    .ftco-footer-social li {
+        list-style: none;
+        margin: 0 10px 0 0;
+        display: inline-block;
+    }
+
+        .ftco-footer-social li a {
+            height: 50px;
+            width: 50px;
+            display: block;
+            float: left;
+            background: #b06b85;
+            border-radius: 50%;
+            position: relative;
+        }
+
+            .ftco-footer-social li a span {
+                position: absolute;
+                font-size: 26px;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+
+            .ftco-footer-social li a:hover {
+                color: #fff;
+            }
+
+    .footer-small-nav > li {
+        display: inline-block;
+    }
+
+        .footer-small-nav > li a {
+            margin: 0 10px 10px 0;
+        }
+
+            .footer-small-nav > li a:hover, .footer-small-nav > li a:focus {
+                color: #d4ca68;
+            }
+
+    .media .ftco-icon {
+        width: 100px;
+    }
+
+        .media .ftco-icon span {
+            color: #d4ca68;
+        }
+
+    .ftco-media {
+        background: #fff;
+        border-radius: 0px;
+    }
+
+        .ftco-media .heading {
+            font-weight: normal;
+        }
+
+        .ftco-media.ftco-media-shadow {
+            padding: 40px;
+            background: #fff;
+            -webkit-box-shadow: 0 10px 50px -15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 50px -15px rgba(0, 0, 0, 0.3);
+            -webkit-transition: .2s all ease;
+            -o-transition: .2s all ease;
+            transition: .2s all ease;
+            position: relative;
+            top: 0;
+        }
+
+            .ftco-media.ftco-media-shadow:hover, .ftco-media.ftco-media-shadow:focus {
+                top: -3px;
+                -webkit-box-shadow: 0 10px 70px -15px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 10px 70px -15px rgba(0, 0, 0, 0.3);
+            }
+
+        .ftco-media .icon {
+            font-size: 50px;
+            display: block;
+            color: #d4ca68;
+        }
+
+        .ftco-media.text-center .ftco-icon {
+            margin: 0 auto;
+        }
+
+    .ftco-overflow-hidden {
+        overflow: hidden;
+    }
+
+    .ftco-section {
+        padding: 6em 0;
+        position: relative;
+    }
+
+    .ftco-no-pt {
+        padding-top: 0;
+    }
+
+    .ftco-no-pb {
+        padding-bottom: 0;
+    }
+
+    .ftco-bg-dark {
+        background: #3c312e;
+    }
+</style>
+
+<header style="height:600px;">
+    <div class="overlay"> </div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="~/img/video1.MOV" type="video/mp4">
+    </video>
+    <div class="container h-100 ">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class="display-3 subheading text-white">
+                      Farha  
+
+                </h1>
+
+                <p class="lead mb-0 text-white"> 𝖜𝖎𝖘𝖍𝖊𝖘 𝖞𝖔𝖚 𝖆 𝖍𝖆𝖕𝖕𝖞 𝖆𝖓𝖉 𝖊𝖓𝖏𝖔𝖞𝖆𝖇𝖑𝖊 𝖕𝖆𝖗𝖙𝖞 </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+       
+
+<section class="  my-2 py-2 card " id="about">
+    <pre>
+
+
+
+</pre>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 img img d-flex justify-content-center align-items-center">
+                <img src="~/img/1.jpg" style="width:477px; height:500px; left:0;right:0;" / >
+            </div>
+            <div class="col-md-6 wrap-about pl-md-5 ftco-animate">
+                <div class="heading-section">
+                    <pre>
+
+
+
+
+
+        </pre>
+
+
+                    <h2 class="mb-4"> Welcome To Farha</h2>
+
+                    <p> A web application that provides events hall reservation service such as wedding, graduation, conferences, company dinner, etc by linking the consumer to the hall owners online</p>
+                    <p> The ones who looking for a hall will save a lot of time as Farha will make it easier to find the right option based on budget and location of the consumer.</p>
+                    <pre>
+
+
+
+
+
+
+        </pre>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre>
+
+
+
+</pre>
+</section>
+
+
+<footer class="ftco-footer ftco-section " id="footer">
+    <div class="container">
+
+        <div class="col-md">
+            <h2 class="ftco-heading-2"> <img src="~/img/Picture1.png " style="width:300px; " class="mr-3" / > </h2>
+            <div class="row ">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2"> See Our Page</h2>
+
+                    <ul class="ftco-footer-social list-unstyled mt-5">
+
+                        <li class="ftco-animate"> <a href="https://www.facebook.com/iotmakeriq/"> <span> <i class="fab fa-facebook-f"> </i> </span> </a> </li>
+                        <li class="ftco-animate"> <a href="https://instagram.com/thestationiq?igshid=1sh75cfwt4zfc"> <span> <i class="fab fa-instagram"> </i> </span> </a> </li>
+                    </ul>
+                </div>
+                <div class="col-4"> </div>
+
+
+                <div class="col-md float-left">
+                    <div class="ftco-footer-widget mb-4 float-left">
+                        <h2 class="ftco-heading-2 "> Have a Questions?</h2>
+                        <div class="block-23 mb-3 ">
+                            <ul>
+                                <li style="color:black"> <span> <i class="fas fa-location-arrow"> </i> </span> <span class="text"> The Station المحطة, Aqba bin nafi, Karadah, Baghdad, Iraq, </span> </li>
+                                <li style="color:black"> <span> <i class="fas fa-phone"> </i> </span> <span class="text"> 077 392 3929 210</span> </li>
+                                <li style="color:black"> <span> <i class="far fa-envelope"> </i> </span> <span class="text"> info@IotMaker.com</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>

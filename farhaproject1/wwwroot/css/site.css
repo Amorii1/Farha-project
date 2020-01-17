@@ -1,0 +1,297 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+.bgprofile
+
+{
+    background-image: url(../img/ph2.jpg);
+   
+}
+
+.backgroundbg {
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+.map-container-2 {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+    .map-container-2 iframe {
+        left: 0;
+        top: 0;
+        height: 400%;
+        width: 400%;
+        position: absolute;
+    }
+
+.icon-twitter-square:before {
+    content: "\f081";
+}
+
+header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+    header video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    header .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    header .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.5;
+        z-index: 1;
+    }
+
+.ftco-footer {
+    font-size: 16px;
+    padding: 7em 0;
+    background: #6ca2ab;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+    .ftco-footer .ftco-footer-logo {
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
+
+    .ftco-footer .ftco-footer-widget h2 {
+        font-weight: normal;
+        color: #fff;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .ftco-footer .ftco-footer-widget ul li {
+        margin-bottom: 10px;
+    }
+
+        .ftco-footer .ftco-footer-widget ul li a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+            .ftco-footer .ftco-footer-widget ul li a span {
+                color: #fff;
+            }
+
+    .ftco-footer .ftco-footer-widget .btn-primary {
+        background: #fff !important;
+        border: 2px solid #fff !important;
+    }
+
+        .ftco-footer .ftco-footer-widget .btn-primary:hover {
+            background: #fff;
+            border: 2px solid #fff !important;
+        }
+
+    .ftco-footer p {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .ftco-footer a {
+        color: #d4ca68;
+    }
+
+        .ftco-footer a:hover {
+            color: #d4ca68;
+        }
+
+    .ftco-footer .ftco-heading-2 {
+        font-size: 17px;
+        font-weight: 400;
+        color: #000000;
+    }
+
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+    .ftco-footer-social li a {
+        height: 50px;
+        width: 50px;
+        display: block;
+        float: left;
+        background: #b06b85;
+        border-radius: 50%;
+        position: relative;
+    }
+
+        .ftco-footer-social li a span {
+            position: absolute;
+            font-size: 26px;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .ftco-footer-social li a:hover {
+            color: #fff;
+        }
+
+.footer-small-nav > li {
+    display: inline-block;
+}
+
+    .footer-small-nav > li a {
+        margin: 0 10px 10px 0;
+    }
+
+        .footer-small-nav > li a:hover, .footer-small-nav > li a:focus {
+            color: #d4ca68;
+        }
+
+.media .ftco-icon {
+    width: 100px;
+}
+
+    .media .ftco-icon span {
+        color: #d4ca68;
+    }
+
+.ftco-media {
+    background: #fff;
+    border-radius: 0px;
+}
+
+    .ftco-media .heading {
+        font-weight: normal;
+    }
+
+    .ftco-media.ftco-media-shadow {
+        padding: 40px;
+        background: #fff;
+        -webkit-box-shadow: 0 10px 50px -15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 50px -15px rgba(0, 0, 0, 0.3);
+        -webkit-transition: .2s all ease;
+        -o-transition: .2s all ease;
+        transition: .2s all ease;
+        position: relative;
+        top: 0;
+    }
+
+        .ftco-media.ftco-media-shadow:hover, .ftco-media.ftco-media-shadow:focus {
+            top: -3px;
+            -webkit-box-shadow: 0 10px 70px -15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 70px -15px rgba(0, 0, 0, 0.3);
+        }
+
+    .ftco-media .icon {
+        font-size: 50px;
+        display: block;
+        color: #d4ca68;
+    }
+
+    .ftco-media.text-center .ftco-icon {
+        margin: 0 auto;
+    }
+
+.ftco-overflow-hidden {
+    overflow: hidden;
+}
+
+.ftco-section {
+    padding: 6em 0;
+    position: relative;
+}
+
+.ftco-no-pt {
+    padding-top: 0;
+}
+
+.ftco-no-pb {
+    padding-bottom: 0;
+}
+
+.ftco-bg-dark {
+    background: #3c312e;
+}

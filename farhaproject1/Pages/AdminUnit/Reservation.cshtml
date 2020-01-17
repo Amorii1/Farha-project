@@ -1,0 +1,100 @@
+﻿@page
+@model farhaproject1.Pages.AdminUnit.ReservationModel
+@{
+    ViewData["Title"] = "Reservation";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+
+
+@if (Model.TReservation.Count() != 0)
+{
+    <section class="ftco-section bg-secondary pt-1" id="rsvp-section">
+
+
+        @foreach (var item in Model.TReservation)
+        {
+            <div class="container">
+                <div class="row justify-content-center pb-3">
+                    <div class="col-md-12 text-center heading-section">
+
+                        <h2 class="mb-3" style="color:#f58499;">Request</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+
+                        <form method="post" enctype="multipart/form-data" class="rsvp-form ">
+
+
+                            <div class="">
+                                <div class="form-group">
+
+                                    <li class="list-group-item text-dark"> @Html.DisplayNameFor(m => item.Name) : @Html.DisplayFor(m => item.Name) </li>
+                                </div>
+                                <div class="form-group">
+
+                                    <li class="list-group-item text-dark"> @Html.DisplayNameFor(m => item.PhoneNumber) : @Html.DisplayFor(m => item.PhoneNumber) </li>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group">
+                                    <input type="date" asp-for="@item.D" placeholder="Pick the date" class="form-control datepicker datepicker-inline">
+                                </div>
+                                <div class="form-group">
+                                    <li class="list-group-item text-dark">@Html.DisplayNameFor(m => item.TotalPrice) : @Html.DisplayFor(m => item.TotalPrice) IQD </li>
+                                    @*<input type="hidden" asp-for="TotalPrices" />*@
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="form-group">
+                                    <li class="list-group-item text-dark">@Html.DisplayNameFor(m => item.HallInformation.HallName) :@Html.DisplayFor(m => item.HallInformation.HallName) </li>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="">
+                                <div class="form-group">
+
+                                    <li class="list-group-item text-dark"> @Html.DisplayNameFor(m => item.Decoration.Name) : @Html.DisplayFor(m => item.Decoration.Name) </li>
+                                </div>
+                                <div class="form-group">
+
+                                    <li class="list-group-item text-dark"> @Html.DisplayNameFor(m => item.DanceTeam.Name) : @Html.DisplayFor(m => item.DanceTeam.Name) </li>
+
+                                </div>
+                                <input type="hidden" asp-for="@Model.IdR" value="@item.Id" />
+
+                                <div class="form-group float-right">
+
+
+                                    <input type="submit" value="Accept" asp-page-handler="Accept" class="btn btn-primary py-3 px-5 mr-1 ">
+
+                                </div>
+                                <div class="form-group ">
+                                    <input type="submit" value="Deny" asp-page-handler="Deny" class="btn btn-primary py-3 px-5 mr-1 ">
+
+
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </section>}
+else
+{
+    <h2 class="mb-3" style="color:#f58499;">No Request</h2>
+}

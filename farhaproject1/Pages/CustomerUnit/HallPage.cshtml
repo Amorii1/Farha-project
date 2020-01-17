@@ -1,0 +1,241 @@
+﻿@page
+@model farhaproject1.Pages.CustomerUnit.HallPageModel
+@{
+    ViewData["Title"] = "HallPage";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<style>
+    bgimg {
+        background-image: url('../img/1.jpg');
+    }
+
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+        /* IMAGE STYLES */
+        [type=radio] + h3 {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + h3 {
+            outline: 1px solid #f00;
+        }
+
+
+
+    /* Hover effects */
+    .card {
+        transition: -webkit-transform 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.01, 1.01);
+        }
+
+    .containers {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .3s ease;
+        background-color: #f58499;
+    }
+
+    .containers:hover .overlay {
+        opacity: 1;
+    }
+
+    .icon {
+        color: white;
+        font-size: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .fa-images:hover {
+        color: #eee;
+    }
+</style>
+
+
+    <section class=" pt-3 " style="background-image: url(../img/3.jpg);  background-repeat: no-repeat;background-size: cover;
+    position: relative; ">
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 text-center heading-section ">
+                    <span class="clone">@Html.DisplayFor(m => Model.HallInformation.HallName)</span>
+                    <h2 class="mb-3" style="color:#f58499;">Photo of Hall & Descrption</h2>
+                </div>
+            </div>
+            <p>@Html.DisplayFor(m => Model.HallInformation.Description)</p>
+            @if (Model.Photo.Count() != 0)
+            {
+                <div class="row justify-content-center ">
+                    @foreach (var item in Model.Photo)
+                    {
+
+
+                        <div class="col-md-5 ">
+                            <div class="place img">
+                                <div class="text text-center justify-content-center">
+
+                                    <img src="~/img/@item.ImgFile" style=" width:350px;height:340px;" />
+
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    }
+
+
+
+                </div>}
+            else { <p>no photo for this hall</p>}
+</section>
+
+
+<section class="ftco-section bg-light" id="when-where-section">
+    <form method="post">
+
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 text-center heading-section ">
+
+                    <h2 class="mb-3">Decoration &amp; DanceTeam</h2>
+                </div>
+            </div>
+            <input type="hidden" asp-for="HallInformation.Id" />
+            <div class="col-md-12 text-left heading-section pt-4">
+                <h3>Select your Decoration</h3>
+            </div>
+            <div class="row">
+
+                @if (Model.Decoration.Count() != 0)
+                {
+                    @foreach (var item in Model.Decoration)
+                    {
+                        <div class="col-md-4 px-2 py-2">
+                            <div class="place img" style="background-image: url(../img/ph3.jpg);">
+                                <div class="text text-center">
+                                    <div class="containers">
+                                        <label>
+                                            <img style="height: 200px; width: 100%; display: block;" src="~/img/@item.ImgFile">
+                                            <div class="overlay">
+                                                <a class="icon" asp-page="HallPhoto" asp-route-Id="@item.Id">
+                                                    <i class="far fa-images"></i>
+                                                </a>
+                                            </div>
+
+                                        </label>
+                                    </div>
+                                    <p>Select the Decoration if you like</p>
+                                    <p style="background-color:#f5d8d0">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </p>
+
+
+                                    <label class="mb-2 bg-white">
+                                        <input type="radio" value="@item.Id" asp-for="CutomerSelect.DecorationId" />  <h3 class=" text-dark">@Html.DisplayFor(m => item.Name)</h3>
+                                        <span asp-validation-for="CutomerSelect.DecorationId" class="text-danger"> </span>
+                                    </label>
+
+
+                                    <p style="background-color:#f5d8d0"> @Html.DisplayNameFor(m => item.Price) : @Html.DisplayFor(m => item.Price)   <i class="fal fa-arrow-to-bottom"></i> </p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                else
+                {
+                    <div>
+                        <p>no Decoration for this Hall</p>
+                    </div>}
+            </div>
+            <div class="col-md-12 text-left heading-section pt-2">
+                <h3>Select your Dance Team</h3>
+            </div>
+
+            <div class="row  pb-md-5 ">
+
+                <br />
+                @if (Model.DanceTeam.Count() != 0)
+                {
+
+                    @foreach (var item in Model.DanceTeam)
+                    {
+
+                        <div class="col-md-4 px-2 py-2">
+                            <div class="place img" style="background-image: url(../img/ph2.jpg);">
+                                <div class="text text-center">
+
+                                    <p>Select the Decoration if you like</p>
+                                    <p style="background-color:#f5d8d0">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </p>
+
+                                    <label class="mb-2 bg-white">
+                                        <input type="radio" value="@item.Id" asp-for="CutomerSelect.DanceTeamId" /> <h3 class=" text-dark">@Html.DisplayFor(m => item.Name)</h3>
+                                        <span asp-validation-for="CutomerSelect.DanceTeamId" class="text-danger"> </span>
+                                    </label>
+
+
+                                    <p style="background-color:#f5d8d0"> @Html.DisplayNameFor(m => item.Price) : @Html.DisplayFor(m => item.Price)   <i class="fal fa-arrow-to-bottom"></i> </p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    }}
+                else
+                {
+                    <div>
+                        <p>no Dance Team for this Hall</p>
+                    </div>}
+            </div>
+            <div class="mr-5 mt-sm-1 mt-md-1">
+             
+                <button class="btn bg-info float-sm-right  float-right">Next <i class="fas fa-arrow-right pr-3"></i></button>
+            </div>
+        </div>
+        </form>
+</section>
+
+
+

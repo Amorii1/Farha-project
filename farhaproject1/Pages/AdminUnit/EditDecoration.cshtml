@@ -1,0 +1,70 @@
+﻿@page
+@model farhaproject1.Pages.AdminUnit.EditDecorationModel
+@{
+    ViewData["Title"] = "EditDecoration";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <body>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="border backgroundWhite pt-3 pl-3">
+
+                <input type="hidden" asp-for="Decoration.Id" />
+                <input type="hidden" asp-for="Decoration.AdminId" />
+
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label asp-for="Decoration.Name"> </label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Decoration.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label asp-for="Decoration.Description"> </label>
+                    </div>
+                    <div class="col-5">
+                        <textarea asp-for="Decoration.Description" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label asp-for="Decoration.Price"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Decoration.Price" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label>Photo of Hall</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="file" asp-for="img" class="form-control">   <img style="height: 200px; width: 100%; display: block;" src="~/img/@Model.Decoration.ImgFile">
+                        </input>
+                    </div>
+                </div>
+             
+
+
+                <div class=" form-group row">
+                    <div class="col-5 offset-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="submit" class="btn btn-info form-control" value="Update" />
+                            </div>
+                            <div class="col-6">
+                                <a asp-page="Index" class="btn btn-success form-control">Back </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </body>
+

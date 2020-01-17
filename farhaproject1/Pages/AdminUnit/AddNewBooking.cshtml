@@ -1,0 +1,111 @@
+﻿@page
+@model farhaproject1.Pages.AdminUnit.AddNewBookingModel
+@{
+    ViewData["Title"] = "AddNewBooking";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+
+
+<section class="ftco-section bg-secondary pt-2" id="rsvp-section">
+
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 text-center heading-section">
+
+                <h2 class="mb-3" style="color:#f58499;">Booking the Hall?</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+
+                <form method="post" enctype="multipart/form-data" class="rsvp-form ">
+
+                    <input type="hidden" asp-for="userid" />
+                    <input type="hidden" asp-for="customer.AdminId" />
+                    <div class="">
+                        <div class="form-group">
+                            <input type="text" asp-for="customer.Name" class="form-control" placeholder="Name">
+                            <p asp-validation-for="customer.Name" class="text-danger"> </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" asp-for="customer.PhoneNumber" class="form-control" placeholder="Phone Number">
+                            <p asp-validation-for="TReservation.PhoneNumber" class="text-danger"> </p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="form-group">
+                            <input type="date" asp-for="AddDate" placeholder="Pick the date" class="form-control datepicker datepicker-inline">
+                            <p asp-validation-for="TReservation.D" class="text-danger"> </p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="">
+                        <div class="form-group">
+                            @if (Model.Hall.Count() != 0)
+                            {
+                                <select asp-for="customer.HallId"
+                                        asp-items="@(new SelectList(Model.Hall, "Id", "HallName"))"
+                                        class="form-control">
+                                </select>}
+                            else
+                            {
+                                <p>no service exist</p>
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                        <div class="form-group">
+
+                            @if (Model.Decoration.Count() != 0)
+                            {
+                                <select asp-for="customer.DecorationId"
+                                        asp-items="@(new SelectList(Model.Decoration, "Id", "Name"))"
+                                        class="form-control">
+                                </select>}
+                            else
+                            {
+                                <p>no Decoration exist</p>
+                            }
+                        </div>
+                        <div class="form-group">
+
+                            @if (Model.Decoration.Count() != 0)
+                            {
+                                <select asp-for="customer.DanceTeamId"
+                                        asp-items="@(new SelectList(Model.DanceTeam, "Id", "Name"))"
+                                        class="form-control">
+                                </select>}
+                            else
+                            {
+                                <p>no Dance team exist</p>
+                            }
+                        </div>
+
+
+                        <div class="form-group float-right">
+
+
+                            <input type="submit" value="Add" class="btn btn-primary py-3 px-5 mr-1 ">
+                            
+                        </div>
+                        <div class="form-group ">
+                           
+                            <a asp-page="Index"  class="btn btn-primary py-3 px-5 mr-5 ">Back </a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,80 @@
+﻿@page
+@model farhaproject1.Pages.AdminUnit.DeleteDanceTeamModel
+@{
+    ViewData["Title"] = "DeleteDanceTeam";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+
+
+<section class="ftco-section bg-secondary" id="rsvp-section">
+
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 text-center heading-section">
+
+                <h2 class="mb-3" style="color:#f58499;">Delete Dance Team !!!</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form method="post" class="rsvp-form ">
+
+                    <input type="hidden" asp-for="DanceTeam.Id" />
+                    <input type="hidden" asp-for="DanceTeam.AdminId" />
+                    <div class="">
+                        <div class="form-group">
+                            <input type="text" asp-for="DanceTeam.Name" class="form-control" placeholder="Name" disabled />
+                            <p asp-validation-for="DanceTeam.Name" class="text-danger"> </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" asp-for="DanceTeam.Price" class="form-control" placeholder="Phone Number" disabled />
+                            <p asp-validation-for="DanceTeam.Price" class="text-danger"> </p>
+                        </div>
+
+
+                        <div class="form-group float-right">
+                            <btn data-toggle="modal" data-target="#Ask" class="btn btn-info  py-3 px-5 mr-1">Delete</btn>
+                        </div>
+
+                        <div class="form-group ">
+                            <a asp-page="Index" class="btn btn-primary py-3 px-5 mr-5" value="Back"> Back </a>
+                        </div>
+
+                    </div>
+                    <div class="modal fade" id="Ask" role="dialog" method="post">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete Dance Team !!!</h5>
+                                    <button class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class=" modal-body ">Are you sure?</p>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="submit" class="btn btn-primary">Yes</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+

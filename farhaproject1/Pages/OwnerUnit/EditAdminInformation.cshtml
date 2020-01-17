@@ -1,0 +1,74 @@
+﻿@page
+@model farhaproject1.Pages.OwnerUnit.EditAdminInformationModel
+@{
+    ViewData["Title"] = "EditAdminInformation";
+}
+@*
+<div class="float-right pt-5 pr-5">
+    <div class="float-right pt-5 pr-5"> <a asp-page="AdminInformation" class="btn btn-secondary">Back To List</a></div>
+
+</div>*@
+
+<h3 class="text-info pl-4">Edit Hall Owner</h3>
+<form method="post">
+
+    <div class="border-info col-6  offset-3  pt-3 pb-3 trans">
+        <input type="hidden" asp-for="InformationOfAdmin.Id" />
+
+        <div class="row form-group text-secondary">
+            <div class="col-2">
+                <label asp-for="InformationOfAdmin.Email"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="InformationOfAdmin.Email" class="form-control" />
+                <span asp-validation-for="InformationOfAdmin.Email" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="row form-group text-secondary">
+            <div class="col-2">
+                <label asp-for="InformationOfAdmin.PhoneNumber"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="InformationOfAdmin.PhoneNumber" class="form-control" />
+                <span asp-validation-for="InformationOfAdmin.PhoneNumber" class="text-danger"></span>
+
+            </div>
+        </div>
+
+
+        <div class="row form-group text-secondary">
+            <div class="col-2">
+                <label asp-for="InformationOfAdmin.CenterName"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="InformationOfAdmin.CenterName" class="form-control" />
+                <span asp-validation-for="InformationOfAdmin.CenterName" class="text-danger"></span>
+
+            </div>
+        </div>
+
+        <div class="row form-group text-secondary">
+            <div class="col-2">
+                <label asp-for="InformationOfAdmin.CenterLocation"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="InformationOfAdmin.CenterLocation" class="form-control" />
+                <span asp-validation-for="InformationOfAdmin.CenterLocation" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-5 offset-2">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="submit" class="btn btn-primary form-control" value="Update" />
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn-secondary form-control" asp-page="AdminInformation">Back To List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

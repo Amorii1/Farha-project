@@ -1,0 +1,63 @@
+﻿@page
+@model farhaproject1.Pages.AdminUnit.AddNewDanceTeamModel
+@{
+    ViewData["Title"] = "AddNewDanceTeam";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+
+
+<section class="ftco-section bg-secondary" id="rsvp-section">
+
+    <div class="container">
+        <div class="row justify-content-center pb-5 pt-2">
+            <div class="col-md-12 text-center heading-section">
+
+                <h2 class="mb-3" style="color:#f58499;">Add New Dance Team </h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+
+                <form method="post" enctype="multipart/form-data" class="rsvp-form ">
+                    <input type="hidden" asp-for="userid" />
+                    <input type="hidden" asp-for="DanceTeam.Id" />
+                    <input type="hidden" asp-for="DanceTeam.AdminId" />
+                    <div class="">
+                        <div class="form-group">
+                            <input type="text" asp-for="DanceTeam.Name" class="form-control" placeholder="Name">
+                            <p asp-validation-for="DanceTeam.Name" class="text-danger"> </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" asp-for="DanceTeam.Price" class="form-control" placeholder="Price">
+                            <p asp-validation-for="DanceTeam.Price" class="text-danger"> </p>
+                        </div>
+
+
+
+
+                        <div class="form-group float-right">
+                            <input type="submit" asp-page-handler="Create" class="btn btn-info py-3 px-5 mr-1" value="Create" />
+                        </div>
+
+                        <div class="form-group ">
+                            <a asp-page="Index" class="btn btn-primary py-3 px-5 mr-5" value="Back"> Back </a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+

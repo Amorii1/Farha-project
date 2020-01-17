@@ -1,0 +1,184 @@
+﻿@page
+@model farhaproject1.Pages.CustomerUnit.IndexModel
+@using farhaproject1.Utility;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+
+</head>
+<style>
+    .card {
+        transition: -webkit-transform 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.01, 1.01);
+        }
+        .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+</style>
+
+
+
+<div class="s010" style="background-image: url(../img/ph2.jpg);  background-repeat: no-repeat;background-size: cover;
+    position: relative; ">
+    <form method="get" asp-page="Index">
+        <div class="inner-form">
+
+            <div class="advance-search">
+                <h3 > Search By </h3><p>(you can search by price and Location at the same time)</p>
+                <div class="row">
+                    <div class="input-field">
+                        <div class="input-select">
+                            <select asp-for="searchName"
+                                    asp-items="@(new SelectList(Model.Halls, "HallName", "HallName"))"
+                                    class="form-control ">
+                                <option placeholder="" value="" selected>HallName</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <div class="input-select">
+                            <select asp-for="searchPrice"
+                                    asp-items="@(new SelectList(Model.Halls, "Price", "Price"))"
+                                    class="form-control ">
+                                <option placeholder="" value="" selected>Price</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="input-field">
+                        <div class="input-select">
+                            <select asp-for="searchLocation"
+                                    asp-items="@(new SelectList(Model.Admin, "CenterLocation", "CenterLocation"))"
+                                    class="form-control ">
+                                <option placeholder="" value="" selected>Location</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row second">
+
+
+
+                    <input type="date" placeholder="Pick the date" class="form-control col-4 " asp-for="D1">
+
+
+                  
+
+                        <div class="group-btn  float-right mt-sm-5 mr-sm-3">
+
+                            <button type="submit" class="btn  py-3 ">SEARCH <i class="fas fa-search"></i></button>
+                        </div>
+                  
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<section class="ftco-section bg-light" id="when-where-section">
+    <form method="post">
+
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 text-center heading-section ">
+
+                    <h2 class="mb-3">Avaliable Hall</h2>
+                </div>
+            </div>
+
+            <div class=" row">
+                @*@if (Model.Reservation.Count() != 0)
+                {
+                    @foreach (var item in Model.Reservation)
+                    {
+                        <div class="col-md-4 px-2 py-2 card  my-2">
+                            <div class="place img" style="background-image: url(../img/b.jpg);">
+                                <a asp-page="HallPage" asp-route-Id="@item.HallId">
+                                    <div class="text text-center">
+                                        <div class="containers">
+                                            <label>
+                                                <img style="height: 200px; width: 100%; display: block;" src="~/img/@item.HallInformation.ImgFile">
+
+                                            </label>
+                                        </div>
+                                        <h3>@Html.DisplayFor(m => item.HallInformation.HallName)</h3>
+
+                                        <p class="card-text">@Html.DisplayFor(m => item.HallInformation.Description) </p>
+
+                                        <p style="background-color:#f5d8d0"> @Html.DisplayNameFor(m => item.HallInformation.Price) : @Html.DisplayFor(m => item.HallInformation.Price)   <i class="fal fa-arrow-to-bottom"></i> </p>
+                                        <p style="background-color:#f5d8d0">@Html.DisplayNameFor(m => item.HallInformation.Size) : @Html.DisplayFor(m => item.HallInformation.Size)</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }}
+                            else
+                            {*@
+
+                                @foreach(var item in Model.Hall)
+                            {
+                    <div class="col-md-4 px-2 py-2 card  my-2">
+                        <div class="place img" style="background-image: url(../img/b.jpg);">
+                            <a asp-page="HallPage" asp-route-Id="@item.Id">
+                                <div class="text text-center">
+                                    <div class="containers">
+                                        <label>
+                                            <img style = "height: 200px; width: 100%; display: block;" src="~/img/@item.ImgFile">
+
+                                        </label>
+                                    </div>
+                                    <h3>@Html.DisplayFor(m => item.HallName)</h3>
+
+                                
+                                    <p style = "background-color:#f5d8d0" > @Html.DisplayNameFor(m => item.Price) : @Html.DisplayFor(m => item.Price)   <i class="fal fa-arrow-to-bottom"></i> </p>
+                                    <p style = "background-color:#f5d8d0" > @Html.DisplayNameFor(m => item.Size) : @Html.DisplayFor(m => item.Size)</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+
+
+
+
+        </div>
+    </form>
+</section>
+
+
+    
+
+   
